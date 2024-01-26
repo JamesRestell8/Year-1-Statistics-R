@@ -30,4 +30,5 @@ boxplot(quakes) #box plot
 # middle line is median
 # other two are lower and upper hinge
 
-
+# quantile(x, c(0.25, 0.75)) will return the lower quartile and upper quartile
+# note that you could choose any decimal and get that quantile returned.
