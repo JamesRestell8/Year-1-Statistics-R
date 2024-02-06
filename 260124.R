@@ -32,3 +32,9 @@ boxplot(quakes) #box plot
 
 # quantile(x, c(0.25, 0.75)) will return the lower quartile and upper quartile
 # note that you could choose any decimal and get that quantile returned.
+
+x = seq(-pi, pi, by=0.05)
+plot(x, sin(x), type="l", col="blue", # I want a blue line
+     xlab="x", ylab="sin(x)",
+     main="The sine function")
+
