@@ -1,0 +1,64 @@
+---
+title: "R Problems 1.1 & 1.4"
+author: "James Restell"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1.1
+# (a)
+Firstly, we load the dataset for the problem:
+```{r load}
+load("stats1.RData")
+```
+We can now print out the various plots for the Iridium dataset:
+```{r plots}
+stem(iridium)
+boxplot(iridium)
+hist(iridium)
+plot(iridium)
+```
+
+With these plots we can see that the data is heavily centered around 160, with a very small standard deviation apart from 4-5 fairly extreme outliers (depending on the definition of outliers being used).
+
+# (b)
+```{r means}
+median(iridium)
+mean(iridium)
+```
+We can also find the trimmed mean to exclude a certain number of outliers:
+```{r trimmed}
+mean(iridium, trim=0.1)
+mean(iridium, trim=0.2)
+```
+
+Whilst all of these values are very good measures of the centres of this data, the trimmed means and median are better measures than the mean, which is slightly lower as it is affected by the low-valued outliers.
+
+# (c)
+```{r ranges}
+var(iridium)
+sd(iridium)
+fivenum(iridium)
+summary(iridium)
+IQR(iridium)
+```
+With these values we can see that the spread of data around the centre is very small, as the Quartiles are very close together. However, the distance between the outliers and the rest of the data is comparatively large, as some of them are over 10 IQRs from the mean.
+
+# (d)
+If the outliers were removed, we would see an incredibly dense dataset centred on roughly 160. The outliers only have a large effect on the mean, variation and standard deviation, so these values would change the most (the mean becoming closer to the trimmed mean we saw above), and the variation and standard deviation becoming much closer to zero.
+
+## Problem 1.4
+I will produce a histogram as well as the stem-and-leaf plot as I am more familiar with histograms:
+```{r temp}
+stem(us.temp)
+hist(us.temp)
+```
+
+We also need a five number summary of the data:
+```{r fivenum}
+fivenum(us.temp)
+```
+The centre of the data is roughly 0 degrees, which is roughly what we would expect for a winter month. The spread in the data most likely comes from the different latitudes of the US states - with more northern states recording lower temperatures and southern states being slightly warmer. The extreme low temperature may well have been recorded in Alaska given that it is the most northern state by some margin, and the warmer temperatures recorded in Florida, Arizona, Texas, New Mexico, California etc.
